@@ -1,21 +1,22 @@
 <template>
-  <div class="home">
+  <div class="todos">
     <h1 class="head">My Todo App</h1>
-    <form @submit.prevent="addNewTodo">
-      <label>New Todo</label>
-      <input v-model="newTodo" name="newTodo">
-      <button>Add New Todo</button>
+    <form class="flex" @submit.prevent="addNewTodo">
+      <!-- <label>New Todo</label> -->
+      <input placeholder="Input New Todo" v-model="newTodo" name="newTodo">
+      <button class="add">Add</button>
     </form>
-    <button @click="markAllDone">Mark All Done</button>
-    <button @click="removeAllTodos">Remove All</button>
-    <ul>
-      <li class="todo" v-for="todo in todos" :key="todo.id">
-        <h3 :class="{ done: todo.done}" @click="toggleDone(todo)">{{ todo.content }}</h3>
-        <span>
-          <button @click="removeTodo(index)">x</button>
-        </span>
-      </li>
-    </ul>
+    <button class="button1" @click="markAllDone">Mark All Done</button>
+    <button class="button2" @click="removeAllTodos">Remove All</button>
+    <div>
+      <div class="todo" v-for="todo in todos" :key="todo.id">
+        <div>
+          <button class="new" :class="{ done: todo.done}" @click="toggleDone(todo)">{{ todo.content }}</button>
+          <button class="delete" @click="removeTodo(index)">x</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -69,43 +70,87 @@ export default {
 </script>
 
 <style>
-.home {
-  font-family: sans-serif;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 2em;
+todos {
+  max-width: 400px;
+  margin: 20px auto;
+  position: relative;
+}
+input {
+  font-style: italic;
   width: 80%;
-  margin: 0 auto;
-  background: linear-gradient(rgba(0,0,0,0.5), deeppink);
-  /* align-items: center; */
-  /* justify-content: center; */
-
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-right: 30px;
 }
-
-.head {
-  font-family: 'Kaushan Script', cursive;
-  color: aliceblue;
+.todos ul {
+  position: relative;
+  padding: 0;
 }
-
-input, button, textarea, p, div, section, article, select {
+.todos li {
+  list-style-type: none;
   display: block;
-  width: 80%;
-  font-family: sans-serif;
-  font-size: 1em;
-  margin: 0.5em;
-  /* align-items: center; */
-  /* align-content: center; */
-  /* justify-content: center; */
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  box-shadow: 1px 3px 5px rgba(0,0,0,1);
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.head {
+  font-family: 'Kaushan Script';
+  font-size: 50px;
 }
 .done {
   text-decoration: line-through;
-  color: grey;
+  text-decoration-color: #fd068e;
+  color: black;
 }
-.todo {
-  cursor: pointer;
+button {
+  color: white;
+  background: black;
+  border: 2px 2px 0 0;
+  border-top-color: cornsilk;
+  padding: 10px 5px 10px 5px;
+  border-radius: 10px 0 10px 0;
 }
-.x{
-  display: flex;
-  flex-direction: row;
+.button1, .button2 {
+  letter-spacing: 2px;
+  word-spacing: 8px;
+  border-right: #fd068e solid;
+  margin-top: 8px;
+  padding: 10px 50px;
+}
+.button1 {
+  margin-right: 210px;
+}
+.button2 {
+  margin-right: 80px;
+}
+.new {
+  margin-top: 50px;
+  padding: 10px 100px;
+  background: white;
+  color: cadetblue;
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: serif;
+  border-color: white;
+  margin-left: 30px;
+  min-width: 500px;
+  max-width: 500px;
+  box-shadow: 1px 3px 5px white;
+}
+.delete {
+  color: red;
+  border: cadetblue 2px solid;
+  background: cadetblue;
+  padding: 0px 0px;
+  border-radius: 0;
+  font-size: 20px;
+  margin-left: 80px;
 }
 </style>

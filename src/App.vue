@@ -8,13 +8,20 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: cadetblue;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  color: #2c3e50;
+  width: 80%;
+  height: 600px;
+  max-height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+  box-shadow: 10px 30px  50px rgb(247, 177, 177);
+  border-radius: 10px;
 }
 
 #nav {
