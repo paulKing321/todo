@@ -6,7 +6,7 @@
     <div class="img">
       <img src="../images/paul.jpg">
     </div>
-    <footer>Made with love by PaulKing</footer>
+    <footer>Made with ❤️ by PaulKing</footer>
   </div>
 </template>
 
