@@ -1,6 +1,8 @@
 <template>
   <div class="todos">
-    <Toast v-if="showToast" />
+    <transition name="toast">
+      <Toast v-if="showToast" />
+    </transition>
     <Todos v-if="triggerToast" />
     <h1 class="head">My Todo App</h1>
     <form class="flex" @submit.prevent="addNewTodo">
@@ -153,9 +155,9 @@ input {
   font-size: 50px;
 }
 .done {
+  color: black;
   text-decoration: line-through;
   text-decoration-color: #fd068e;
-  color: black;
 }
 button {
   color: white;
