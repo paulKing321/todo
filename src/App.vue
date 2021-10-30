@@ -14,8 +14,8 @@
   background: cadetblue;
   text-align: center;
   width: 80%;
-  height: 600px;
-  max-height: 600px;
+  min-height: 600px;
+  /* max-height: 600px; */
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
